@@ -1,6 +1,6 @@
 import React from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-// import AddFriend from './AddFriend';
+import AddFriend from "./AddFriend";
 
 class FriendsList extends React.Component {
   state = {
@@ -13,7 +13,7 @@ class FriendsList extends React.Component {
 
   getData = () => {
     axiosWithAuth()
-      .get("/friends/")
+      .get("/api/friends/")
       .then((res) => {
         console.log(res.data);
         this.setState({
@@ -29,7 +29,7 @@ class FriendsList extends React.Component {
     return (
       <div>
         <h1>Friend List</h1>
-        {/* <AddFriend /> */}
+        <AddFriend />
         {this.state.friends.map((item) => {
           return (
             <div key={item.id}>
